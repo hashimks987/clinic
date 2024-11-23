@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karunya ENT Hospital</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+     tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#36669F',
+                secondary: '#F94A4B',
+                'primary-dark': '#1e4c8a',
+                'secondary-dark': '#e82d2e'
+            },
+            fontFamily: {
+                poppins: ['Poppins', 'sans-serif']
+            },
+            container: {
+                center: true,
+                padding: {
+                    DEFAULT: '1rem',
+                    sm: '2rem',
+                    lg: '4rem',
+                    xl: '5rem',
+                    '2xl': '6rem',
+                },
+                screens: {
+                    sm: '600px',
+                    md: '728px',
+                    lg: '984px',
+                    xl: '1240px',
+                    '2xl': '1496px',
+                }
+            }
+        }
+    }
+}
+    </script>
+    <style>
+        /* Custom Styles */
+        .bg-gradient {
+            background: linear-gradient(135deg, #36669F 0%, #1e4c8a 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #36669F 0%, #F94A4B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-pattern {
+            background-image: 
+                linear-gradient(rgba(54, 102, 159, 0.9), rgba(54, 102, 159, 0.9)),
+                url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes slideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .animate-slide-down {
+        animation: slideDown 1s ease-out;
+    }
+
+    .animate-slide-up {
+        animation: slideUp 1s ease-out 0.3s backwards;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Optional hover animations for buttons */
+    .hover\:scale-105:hover {
+        transform: scale(1.05);
+    }
+   
+    </style>
+</head>
+<body class="font-poppins">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white shadow-md ">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center ">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <img style="object-fit: fill;" src="img/Karunya-Logo.png" alt="Logo" class="w-10 h-10">
+                    <span class="text-2xl font-bold text-gradient">Karunya</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary">Home</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary">Services</a>
+                    <a href="#doctors" class="text-gray-600 hover:text-primary">Doctors</a>
+                    <a href="#aboutus" class="text-gray-600 hover:text-primary">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary">Contact</a>
+                    <a href="#appointment" 
+                       class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-secondary-dark transition-colors">
+                        Book Appointment
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-500 hover:text-primary" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="mt-4 space-y-4 bg-white rounded-lg p-4">
+                    <a href="#home" class="block text-gray-600 hover:text-primary">Home</a>
+                    <a href="#services" class="block text-gray-600 hover:text-primary">Services</a>
+                    <a href="#doctors" class="block text-gray-600 hover:text-primary">Doctors</a>
+                    <a href="#about" class="block text-gray-600 hover:text-primary">About</a>
+                    <a href="#contact" class="block text-gray-600 hover:text-primary">Contact</a>
+                    <a href="#appointment" 
+                       class="block bg-secondary text-white px-6 py-2 rounded-full text-center hover:bg-secondary-dark transition-colors">
+                        Book Appointment
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+      <!-- Background Image -->
+      <div class="absolute inset-0 w-full h-full">
+          <img src="img/doctor.jpg" alt="Background" class="w-full h-full object-cover">
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-primary/75"></div>
+      </div>
+  
+      <!-- Content -->
+      <div class="relative container mx-auto max-w-4xl px-4 py-20 text-center">
+          <div class="space-y-8 animate-fade-in">
+              <!-- Animated Title -->
+              <h1 class="text-4xl md:text-6xl font-bold text-white animate-slide-down">
+                  Your Health Is Our Priority
+              </h1>
+              
+              <!-- Animated Subtitle -->
+              <p class="text-xl md:text-2xl text-white/90 animate-slide-up">
+                  Expert ENT care with advanced medical facilities and experienced specialists.
+              </p>
+              
+              <!-- Animated Buttons -->
+              <div class="flex flex-wrap gap-4 justify-center mt-8 animate-fade-in">
+                  <a href="#appointment" 
+                     class="bg-secondary hover:bg-secondary-dark text-white px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 transform">
+                      Book Appointment
+                  </a>
+                  <a href="#services" 
+                     class="bg-white hover:bg-gray-100 text-primary px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 transform">
+                      Our Services
+                  </a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- Stats Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-6xl">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="text-center">
+                  <div class="text-4xl font-bold text-primary mb-2">15+</div>
+                  <div class="text-gray-600">Years Experience</div>
+              </div>
+              <div class="text-center">
+                  <div class="text-4xl font-bold text-primary mb-2">10k+</div>
+                  <div class="text-gray-600">Happy Patients</div>
+              </div>
+              <div class="text-center">
+                  <div class="text-4xl font-bold text-primary mb-2">2+</div>
+                  <div class="text-gray-600">Expert Doctors</div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services py-20 bg-white">
+        <div class="container mx-auto max-w-7xl px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 bg-gradient-to-r from-[#36669F] to-[#F94A4B] bg-clip-text text-transparent">
+                    Dedicated to your health and comfort
+                </h2>
+            </div>
+    
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Speech Therapy -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-head-side-cough-slash text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                            <!-- This icon specifically represents speech/vocal therapy -->
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SPEECH THERAPY</h3>
+                    <p class="text-gray-600 text-sm">Professional speech therapy services for all ages.</p>
+                </div>
+    
+                <!-- Otology & Neurotology -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-ear-listen text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">OTOLOGY & NEUROTOLOGY</h3>
+                    <p class="text-gray-600 text-sm">Specialized care for ear and neurological conditions.</p>
+                </div>
+    
+                <!-- Audiology -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-ear-deaf text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AUDIOLOGY</h3>
+                    <p class="text-gray-600 text-sm">Comprehensive hearing tests and treatment solutions.</p>
+                </div>
+                
+    
+                <!-- Snoring and Sleep Apnoea -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-bed-pulse text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SNORING AND SLEEP APNOEA CLINIC</h3>
+                    <p class="text-gray-600 text-sm">Expert treatment for sleep-related breathing disorders.</p>
+                </div>
+    
+                <!-- Rhinology -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-head-side-mask text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">RHINOLOGY (NOSE & SINUS)</h3>
+                    <p class="text-gray-600 text-sm">Advanced treatment for nasal and sinus conditions.</p>
+                </div>
+    
+                <!-- Adenoids -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-lungs text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ADENOIDS</h3>
+                    <p class="text-gray-600 text-sm">Specialized treatment for adenoid-related conditions.</p>
+                </div>
+    
+                <!-- Thyroid -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-hand-holding-medical text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">THYROID</h3>
+                    <p class="text-gray-600 text-sm">Comprehensive thyroid disorder diagnosis and treatment.</p>
+                </div>
+    
+                <!-- Laryngology -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fa-solid fa-wind text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">LARYNGOLOGY</h3>
+                    <p class="text-gray-600 text-sm">Expert care for voice and throat disorders.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fas fa-user-md text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">EAR LOBE REPAIR & CLEANING</h3>
+                    <p class="text-gray-600 text-sm">Professional ear lobe reconstruction and safe wax removal procedures.</p>
+                </div>
+                
+                <!-- Incision & Drainage -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fas fa-syringe text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">INCISION & DRAINAGE</h3>
+                    <p class="text-gray-600 text-sm">Expert treatment of ear abscesses and related conditions.</p>
+                </div>
+                
+                <!-- Ear Micro Surgery -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fas fa-stethoscope text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">EAR MICRO SURGERY</h3>
+                    <p class="text-gray-600 text-sm">Advanced microsurgical procedures for complex ear conditions.</p>
+                </div>
+                
+                <!-- Ear Drum Repair -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#36669F]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#36669F] transition-colors duration-300">
+                            <i class="fas fa-clinic-medical text-2xl text-[#36669F] group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">EAR DRUM REPAIR</h3>
+                    <p class="text-gray-600 text-sm">Specialized treatment for eardrum perforations and related disorders.</p>
+                </div>
+                
+                <!-- Foreign Body Removal -->
+           
+                
+                <!-- Hearing Aid Services -->
+             
+            </div>
+        </div>
+    
+        <style>
+            .group:hover .shadow-lg {
+                box-shadow: 0 10px 25px rgba(54, 102, 159, 0.1);
+            }
+        </style>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="py-20">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Our Expert Doctors</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Meet our team of experienced medical professionals
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Doctor Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="/api/placeholder/300/300" alt="Dr. Ammini Jacob" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:w-2/3">
+                            <h3 class="text-xl font-bold mb-2">Dr. Ammini Jacob</h3>
+                            <p class="text-gray-600 mb-4">B.Sc, M.B.B.S</p>
+                            <p class="text-sm text-gray-500 mb-4">
+                                Rtd. Govt. Civil Surgeon with extensive experience in general medicine.
+                            </p>
+                            <div class="space-y-2">
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-clock mr-2 text-primary"></i>
+                                    9:30 AM - 2:00 PM
+                                </p>
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-tag mr-2 text-primary"></i>
+                                    General Medicine
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="/api/placeholder/300/300" alt="Dr. Jerin Jacob" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 md:w-2/3">
+                            <h3 class="text-xl font-bold mb-2">Dr. Jerin Jacob</h3>
+                            <p class="text-gray-600 mb-4">M.B.B.S, M.S ENT</p>
+                            <p class="text-sm text-gray-500 mb-4">
+                                Specialized ENT surgeon with expertise in head and neck surgeries.
+                            </p>
+                            <div class="space-y-2">
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-clock mr-2 text-primary"></i>
+                                    9:30 AM - 2:00 PM, 4:30 PM - 8:00 PM
+                                </p>
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-tag mr-2 text-primary"></i>
+                                    ENT Specialist
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="py-20 bg-gradient">
+      <div class="container mx-auto px-4 max-w-7xl">
+          <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-8">
+              <div class="text-center mb-8">
+                  <h2 class="text-3xl font-bold mb-4">Book an Appointment</h2>
+                  <p class="text-gray-600">Schedule your consultation with our expert doctors</p>
+              </div>
+  
+              <form id="appointmentForm" class="grid md:grid-cols-2 gap-6" onsubmit="sendToWhatsApp(event)">
+                  <div>
+                      <label class="block text-gray-700 mb-2">Full Name *</label>
+                        <input type="text" 
+                              id="fullName"
+                              required
+                              pattern="[A-Za-z\s]+"
+                              maxlength="50"
+                              onkeypress="return /[A-Za-z\s]/i.test(event.key)"
+                              oninvalid="this.setCustomValidity('Please enter only alphabets')"
+                              oninput="this.setCustomValidity('')"
+                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                              placeholder="Enter your name">
+                        <p class="text-xs text-gray-500 mt-1">Only alphabets are allowed</p>
+                  </div>
+  
+                  <div>
+                      <label class="block text-gray-700 mb-2">Phone Number *</label>
+                      <input type="tel" 
+                             id="phone"
+                             required
+                             pattern="[0-9]{10,14}"
+                             maxlength="14"
+                             onkeypress="return /[0-9]/i.test(event.key)"
+                             oninvalid="this.setCustomValidity('Please enter a valid phone number (10-14 digits)')"
+                             oninput="validatePhone(this)"
+                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                             placeholder="Enter your phone number">
+                      <p class="text-xs text-gray-500 mt-1">Enter 10-14 digits number</p>
+                  </div>
+  
+                  <div>
+                      <label class="block text-gray-700 mb-2">Select Doctor *</label>
+                      <select id="doctor" 
+                              required
+                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                          <option value="">Choose a doctor</option>
+                          <option value="Dr. Ammini Jacob">Dr. Ammini Jacob</option>
+                          <option value="Dr. Jerin Jacob">Dr. Jerin Jacob</option>
+                      </select>
+                  </div>
+  
+                  <div>
+                      <label class="block text-gray-700 mb-2">Preferred Date *</label>
+                      <input type="date" 
+                             id="date"
+                             required
+                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                  </div>
+  
+                  <div class="md:col-span-2">
+                      <label class="block text-gray-700 mb-2">Health Issue *</label>
+                      <textarea id="healthIssue"
+                                required
+                                rows="4" 
+                                maxlength="500"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                                placeholder="Briefly describe your health issue"></textarea>
+                  </div>
+  
+                  <div class="md:col-span-2 text-center">
+                      <button type="submit" 
+                              class="bg-secondary hover:bg-secondary-dark text-white px-8 py-3 rounded-full transition-colors">
+                          <i class="fab fa-whatsapp mr-2"></i> Book via WhatsApp
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+    </section>
+        <section id="aboutus" class="py-20 bg-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-[#36669F] to-[#F94A4B] bg-clip-text text-transparent">
+                        About Us
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">A legacy of excellence in healthcare since 1985</p>
+                </div>
+        
+                <!-- Content Grid -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Image Column -->
+                    <div class="relative">
+                        <div class="bg-[#36669F]/10 rounded-lg absolute inset-0 transform rotate-3"></div>
+                        <img src="img/jacob-john.png" alt="Dr. Jacob John" class="relative rounded-lg shadow-lg w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 p-4 rounded-lg backdrop-blur">
+                            <p class="text-sm font-medium text-gray-900">Late Dr. Jacob John</p>
+                            <p class="text-sm text-gray-600">Founder, ENT Specialist</p>
+                        </div>
+                    </div>
+        
+                    <!-- Text Column -->
+                    <div class="space-y-6">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-gray-900">Our Legacy</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Established in 1985 by late Dr. Jacob John (ENT specialist), under his and Dr. Ammini Jacob's dedicated guidance, the hospital has prospered into a comprehensive healthcare institution.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed">
+                                We provide comprehensive care for all ENT-related problems, Head and Neck ailments, along with general medical conditions including Diabetes, Hypertension, and specialized Thyroid treatment clinics.
+                            </p>
+                        </div>
+        
+                      
+        
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-gray-900">Leadership</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                The ENT department is currently led by Dr. Jerin Jacob, who brings exceptional expertise and modern medical practices to our institution. His credentials include:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
+                                <li>MBBS from MOSC Medical College, Kolencherry</li>
+                                <li>M.S. (ENT) from Yenepoya Medical College, Mangalore (2019 batch)</li>
+                                <li>2 years of experience as Assistant Professor at a reputed medical college</li>
+                            </ul>
+                        </div>
+        
+                        <!-- Stats -->
+                        <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+                            <div>
+                                <p class="text-3xl font-bold text-[#36669F]">15+</p>
+                                <p class="text-gray-600">Years of Service</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-[#36669F]">10k+</p>
+                                <p class="text-gray-600">Patients Treated</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-[#36669F]">15+</p>
+                                <p class="text-gray-600">Specializations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        </section>
+        <section id="faq" class="py-20 bg-gray-50">
+            <div class="container mx-auto max-w-7xl px-4">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-[#36669F] to-[#F94A4B] bg-clip-text text-transparent">
+                        Frequently Asked Questions
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Find answers to common questions about our services and medical care
+                    </p>
+                </div>
+        
+                <!-- FAQ Container -->
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item border border-gray-200 rounded-lg bg-white">
+                        <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <span class="font-semibold text-gray-800">What are your consultation hours?</span>
+                            <i class="fas fa-chevron-down text-[#36669F] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 py-4 border-t border-gray-200 hidden">
+                            <p class="text-gray-600">
+                                Our consultation hours are:<br>
+                                - Monday to Saturday: 9:30 AM - 8:00 PM<br>
+                              
+                                We recommend booking an appointment in advance to minimize waiting time.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item border border-gray-200 rounded-lg bg-white">
+                        <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <span class="font-semibold text-gray-800">How do I schedule an appointment?</span>
+                            <i class="fas fa-chevron-down text-[#36669F] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 py-4 border-t border-gray-200 hidden">
+                            <p class="text-gray-600">
+                                You can schedule an appointment in several ways:<br>
+                                1. Call us at +91 6282 667 697<br>
+                                2. Use our WhatsApp booking system<br>
+                                3. Visit our hospital during working hours
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item border border-gray-200 rounded-lg bg-white">
+                        <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <span class="font-semibold text-gray-800">What ENT conditions do you treat?</span>
+                            <i class="fas fa-chevron-down text-[#36669F] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 py-4 border-t border-gray-200 hidden">
+                            <p class="text-gray-600">
+                                We treat a wide range of ENT conditions including:<br>
+                                - Sinusitis and allergies<br>
+                                - Ear infections and hearing problems<br>
+                                - Throat infections and tonsillitis<br>
+                                - Sleep apnea and snoring<br>
+                                - Head and neck surgeries<br>
+                                - Voice disorders
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item border border-gray-200 rounded-lg bg-white">
+                        <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <span class="font-semibold text-gray-800">What should I bring to my first appointment?</span>
+                            <i class="fas fa-chevron-down text-[#36669F] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 py-4 border-t border-gray-200 hidden">
+                            <p class="text-gray-600">
+                                Please bring the following to your first appointment:<br>
+                                1. Valid ID proof<br>
+                                2. Previous medical records (if any)<br>
+                                3. List of current medications<br>
+                                4. Insurance card (if applicable)<br>
+                                5. Recent test reports or scans
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item border border-gray-200 rounded-lg bg-white">
+                        <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <span class="font-semibold text-gray-800">Do you handle emergency cases?</span>
+                            <i class="fas fa-chevron-down text-[#36669F] transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 py-4 border-t border-gray-200 hidden">
+                            <p class="text-gray-600">
+                                Yes, we handle emergency cases during our working hours. For after-hours emergencies, we recommend visiting the nearest emergency department. Our doctors are available for follow-up consultations during regular hours.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Contact Information</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">Location</h3>
+                                <p class="text-gray-600">Near Bus Stand, Valakom</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">Phone</h3>
+                                <a href="tel:+916282667697" class="text-gray-600 hover:text-primary">+91 6282 667 697</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">Email</h3>
+                                <a href="mailto:contact@karunyahospital.com" class="text-gray-600 hover:text-primary">
+                                    contact@karunyahospital.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">Working Hours</h3>
+                                <p class="text-gray-600">Monday - Saturday: 9:30 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="/api/placeholder/600/400" alt="Hospital Building" 
+                         class="w-full h-full object-cover rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 py-20">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- About -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">About Us</h4>
+                    <p class="text-gray-400">
+                        Karunya ENT Hospital is committed to providing quality healthcare services with modern facilities and experienced specialists.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#doctors" class="text-gray-400 hover:text-white transition-colors">Doctors</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">ENT Consultation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">General Medicine</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Surgery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Health Check-ups</a></li>
+                    </ul>
+                </div>
+
+                <!-- Working Hours -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Working Hours</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Monday - Saturday:</li>
+                        <li>9:30 AM - 8:00 PM</li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-center md:text-left">
+                        © 2024 Karunya ENT Hospital. All rights reserved.
+                    </p>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" 
+            class="fixed bottom-6 right-6 bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-secondary-dark transition-colors hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const button = item.querySelector('button');
+                const content = item.querySelector('.faq-content');
+                const icon = item.querySelector('.fa-chevron-down');
+                
+                button.addEventListener('click', () => {
+                    // Close all other FAQs
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.faq-content').classList.add('hidden');
+                            otherItem.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    content.classList.toggle('hidden');
+                    icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            });
+        });
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        function validatePhone(input) {
+            // Remove any non-digit characters
+            let cleaned = input.value.replace(/\D/g, '');
+            
+            // Limit to 14 digits
+            cleaned = cleaned.substring(0, 14);
+            
+            // Update input value
+            input.value = cleaned;
+            
+            // Clear custom validity if length is valid
+            if(cleaned.length >= 10 && cleaned.length <= 14) {
+                input.setCustomValidity('');
+            } else {
+                input.setCustomValidity('Please enter a valid phone number (10-14 digits)');
+            }
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('date').value;
+            const healthIssue = document.getElementById('healthIssue').value;
+
+            // Additional validation
+            if(!/^[A-Za-z\s]+$/.test(name)) {
+                alert('Please enter a valid name (only alphabets allowed)');
+                return;
+            }
+
+            if(!/^[0-9]{10,14}$/.test(phone)) {
+                alert('Please enter a valid phone number (10-14 digits)');
+                return;
+            }
+
+            // Format the message for WhatsApp
+            const message = 
+                `*New Appointment Request*%0A%0A` +
+                `*Patient Name:* ${name}%0A` +
+                `*Phone Number:* ${phone}%0A` +
+                `*Selected Doctor:* ${doctor}%0A` +
+                `*Preferred Date:* ${date}%0A` +
+                `*Health Issue:* ${healthIssue}%0A`;
+
+            // WhatsApp number
+            const whatsappNumber = "916282667697";
+
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Reset form after submission
+            document.getElementById('appointmentForm').reset();
+        }
+
+        // Prevent selecting past dates
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today); function toggleFAQ(button) {
+            // Toggle active state
+            button.classList.toggle('text-primary');
+            
+            // Get the content panel
+            const content = button.nextElementSibling;
+            
+            // Toggle visibility
+            content.classList.toggle('hidden');
+            
+            // Rotate the chevron
+            const chevron = button.querySelector('.fa-chevron-down');
+            chevron.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+    </script>
+</body>
+</html>
